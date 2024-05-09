@@ -1,0 +1,108 @@
+.jobCard {
+  box-shadow: #00000040 0px 1px 4px 0px !important;
+  border-radius: 20px !important;
+  transition: all 0.5s;
+  padding: 20px;
+}
+.jobCard:hover {
+  transform: scale(103%);
+}
+
+.postedTimeTag {
+  border-radius: 10px;
+  border: 2px solid rgb(230, 230, 230);
+  font-size: 10px;
+  padding: 4px 10px 4px 5px;
+}
+
+.cardHeader {
+  position: relative !important;
+  padding-left: 55px !important;
+  flex-direction: column !important;
+}
+
+.logo {
+  position: absolute !important;
+  left: 5px;
+  top: 5px;
+  height: 40px !important;
+  width: 40px !important;
+}
+
+.companyName > span {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 3px;
+  color: #8b8b8b;
+  cursor: pointer;
+}
+.companyName > span:hover {
+  text-decoration: underline;
+}
+
+.jobTitle {
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+.location {
+  font-size: 10px;
+  font-weight: 500 !important;
+  margin-top: 6px !important;
+  text-transform: capitalize;
+}
+
+.estimatedSalary {
+  color: rgb(77, 89, 106);
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  margin-top: 10px !important;
+}
+
+.aboutCompany {
+  font-size: 13px !important;
+  height: 180px;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    rgb(255, 255, 255),
+    rgb(255, 255, 255),
+    rgba(255, 255, 255, 0)
+  );
+}
+
+.viewJobLink {
+  position: relative;
+  top: -10px;
+  text-align: center;
+}
+.viewJobLink > a {
+  color: #4943da;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.minExp > h3 {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  margin-bottom: 3px;
+  color: #8b8b8b;
+}
+
+.minExp > p {
+  font-size: 14px !important;
+}
+.referral{
+  display: flex;
+  gap: 5px;
+}
+
+.referral img{
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+.referral span{
+  margin-left: 5px;
+}
