@@ -1,6 +1,7 @@
+import React from 'react';
 
-const IconTag = ({ name, className = "", onClick, ...rest }) => {
-  const ICON = {
+const IconTag = ({ onClick, name, className = "", ...rest }) => {
+  const ICONS = {
     down: (
       <svg
         height="20"
@@ -30,7 +31,7 @@ const IconTag = ({ name, className = "", onClick, ...rest }) => {
       </svg>
     ),
   };
-  return ICON[name];
+  return ICONS[name];
 };
 
-export default IconTag
+export default IconTag;
