@@ -1,0 +1,84 @@
+.alignCenter {
+  display: flex;
+  align-items: center;
+}
+
+.dropdownWrapper {
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  padding: 5px 0px 5px 10px;
+  display: flex;
+}
+.dropdownWrapper:focus-within {
+  outline: 1px solid #1f89e5;
+  border-color: #1f89e5;
+}
+
+.dropdownInputWrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.dropdownInput {
+  min-width: 10px;
+  width: 100%;
+  height: 18px;
+  outline: none !important;
+  border: none;
+  border-radius: 4px 0px 0px 4px;
+  padding: 0px;
+}
+.dropdownInput:focus + .dropdownIcon {
+  color: #666666 !important;
+}
+
+.dropdownLabel {
+  padding-left: 2px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.endIconWrapper {
+  color: #cccccc;
+  cursor: pointer;
+}
+
+.dropdownIcon {
+  padding: 0px 8px;
+  font-size: 20px;
+}
+.dropdownIcon:hover {
+  color: #8b8b8b;
+}
+
+.tag {
+  height: 18px;
+  background-color: #e6e6e6;
+  border-radius: 2px;
+  margin: 2px;
+  font-size: 12px;
+  text-transform: capitalize;
+  max-width: 100%;
+}
+.tag > div {
+  padding: 0px 5px;
+  height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.removeIcon {
+  padding: 0px 2px;
+  height: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.removeIcon:hover {
+  color: #db3700;
+  background-color: #db370052;
+}

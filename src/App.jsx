@@ -1,8 +1,14 @@
-import React from 'react'
+import CustomButton from './components/CustomButton/CustomButton'
+import Dropdown from './components/Dropdown/Dropdown'
+import TextInput from './components/TextInput/TextInput'
 
 const App = () => {
   return (
-    <div>App</div>
+    <div>App
+      {/* <CustomButton/> */}
+      <Dropdown/>
+      {/* <TextInput/> */}
+    </div>
   )
 }
 
