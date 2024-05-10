@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import FilterSection from "../../components/FilterSection/FilterSection";
-import { CircularProgress, Grid } from "@mui/material";
+import { CircularProgress, Grid, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import JobCard from "../../components/jobCard/JobCard";
@@ -8,6 +8,7 @@ import JobCard from "../../components/jobCard/JobCard";
 const SearchJobs = () => {
   const [count, setCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+  const [noData, setNoData] = useState(false);
   const [filteredJobs, setFilteredJobs] = useState([]);
   const [jobsData, setJobsData] = useState({ jdList: [], totalCount: 0 });
 
@@ -32,8 +33,10 @@ const SearchJobs = () => {
     const { data, error } = await getJobs(count);
     if (data) {
       setJobsData({ ...data, jdList: [...jobsData.jdList, ...data.jdList] });
+      setNoData(false);
       setIsLoading(false);
     } else if (error) {
+      setNoData(true);
       setIsLoading(false);
     }
   };
@@ -88,23 +91,36 @@ const SearchJobs = () => {
   return (
     <div className="scroll-wrapper" onScroll={handleScroll}>
       <FilterSection />
-      <Grid container p={3} spacing={4}>
-        {filteredJobs?.map((job, i) => (
-          <Grid key={`job-${i + 1}`} item xs={12} sm={6} md={4} lg={4}>
-            <JobCard job={job} />
-          </Grid>
-        ))}
-      </Grid>
-      {(!count || count * 10 < jobsData.totalCount) && (
-        <Grid
-          container
-          justifyContent={"center"}
-          alignItems={"flex-end"}
-          height={"50px"}
-          mb={2}
+      {!isLoading && noData ? (
+        <Typography
+          textAlign={"center"}
+          mt={5}
+          fontWeight={"500"}
+          fontSize={"20px"}
         >
-          {isLoading && <CircularProgress />}
-        </Grid>
+          No Jobs available at this moment
+        </Typography>
+      ) : (
+        <>
+          <Grid container p={3} spacing={4}>
+            {filteredJobs?.map((job, i) => (
+              <Grid key={`job-${i + 1}`} item xs={12} sm={6} md={4} lg={4}>
+                <JobCard job={job} />
+              </Grid>
+            ))}
+          </Grid>
+          {(!count || count * 10 < jobsData.totalCount) && (
+            <Grid
+              container
+              justifyContent={"center"}
+              alignItems={"flex-end"}
+              height={"50px"}
+              mb={2}
+            >
+              {isLoading && <CircularProgress />}
+            </Grid>
+          )}
+        </>
       )}
     </div>
   );
