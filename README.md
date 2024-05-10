@@ -1,3 +1,7 @@
+Live project link - https://snehal-weekday-interview.vercel.app/
+
+---
+
 ## Run the project
 
 - Install node modules
