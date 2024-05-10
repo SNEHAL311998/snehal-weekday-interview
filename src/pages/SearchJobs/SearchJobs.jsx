@@ -64,8 +64,8 @@ const SearchJobs = () => {
           ? parseInt(exp) >= job?.minExp && parseInt(exp) <= job?.maxExp
           : true) &&
         (minBasePay
-          ? parseInt(minBasePay) >= job?.minJdSalary &&
-            parseInt(minBasePay) <= job?.maxJdSalary
+          ? parseInt(minBasePay.replace(/\$/g, "")) >= job?.minJdSalary &&
+            parseInt(minBasePay.replace(/\$/g, "")) <= job?.maxJdSalary
           : true)
     );
     setFilteredJobs(filtered);

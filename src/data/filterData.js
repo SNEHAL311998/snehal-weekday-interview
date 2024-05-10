@@ -27,4 +27,4 @@ export const TECH_STACKS = [
 export const WORK_MODES = ["remote", "hybrid", "in-office"];
 
 // Minimum Base Pay options
-export const BASE_PAYS = ["0$", "10$", "20$", "30$", "40$", "50$"];
+export const BASE_PAYS = ["$0", "$10", "$20", "$30", "$40", "$50"];
