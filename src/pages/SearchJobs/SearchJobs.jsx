@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import FilterSection from "../../components/FilterSection/FilterSection";
-import { Grid } from "@mui/material";
+import { CircularProgress, Grid } from "@mui/material";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import JobCard from "../../components/jobCard/JobCard";
@@ -71,8 +71,22 @@ const SearchJobs = () => {
     setFilteredJobs(filtered);
   }, [filters, jobsData.jdList]);
 
+  const handleScroll = (e) => {
+    const { scrollHeight, scrollTop, clientHeight } = e.target;
+    let timeoutId;
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      if (
+        Math.floor(scrollHeight - (scrollTop + clientHeight)) <= 0 &&
+        count * 10 < jobsData.totalCount
+      ) {
+        setCount(count + 1);
+      }
+    }, 200);
+  };
+
   return (
-    <div>
+    <div className="scroll-wrapper" onScroll={handleScroll}>
       <FilterSection />
       <Grid container p={3} spacing={4}>
         {filteredJobs?.map((job, i) => (
@@ -81,6 +95,17 @@ const SearchJobs = () => {
           </Grid>
         ))}
       </Grid>
+      {(!count || count * 10 < jobsData.totalCount) && (
+        <Grid
+          container
+          justifyContent={"center"}
+          alignItems={"flex-end"}
+          height={"50px"}
+          mb={2}
+        >
+          {isLoading && <CircularProgress />}
+        </Grid>
+      )}
     </div>
   );
 };
